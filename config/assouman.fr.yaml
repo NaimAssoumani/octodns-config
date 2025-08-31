@@ -14,6 +14,9 @@
     value: v=spf1 include:mx.ovh.com -all
   - type: TXT
     value: v=spf1 include:mx.ovh.com -all
+argocd:
+  type: CNAME
+  value: assouman.fr.
 blog:
   type: CNAME
   value: assouman.fr.

@@ -1,0 +1,18 @@
+---
+
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+    - if: $CI_PIPELINE_SOURCE == "web"
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+    - if: '$CI_COMMIT_BRANCH =~ /^feat-/ || /^fix-/ '
+
+default:
+  image: debian:trixie-slim
+
+include:
+  - component: $CI_SERVER_FQDN/naim.assoum/catalog-automation/release-automation@1.0.0
+
+stages:
+  - check-changelog
+  - publish_releas
